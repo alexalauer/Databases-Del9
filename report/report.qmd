@@ -1,0 +1,75 @@
+---
+title: Deliverable 9 - Running with Docker
+date: last-modified
+author:
+    - name: Alexa Lauer
+      email: lauera@vcu.edu
+format:
+    html:
+        embed-resources: true
+        html-math-method: katex
+        theme: cosmo
+---
+
+This report documents my experiments with docker and docker compose. 
+
+# Example and experiments
+
+In the sections below I explore the example docker code provided
+and experiment with the outputs.
+
+To demonstrate that I did play with things, I'm providing screen shots
+of the changes that I made to the HTML files within each container.
+
+## Example 1 - NGINX server in a container
+
+This example displayed a website that does not interact with the database. Instead the website relies purely on the html and css code provided. 
+
+The screenshot reflects a recent change in the CSS file, where the background was modified from the initial gradient to a solid charcoal gray (#333333). This shift creates a stronger contrast with the white text, making it easier to read while providing a sleek and modern look to the site. The darker tone also allows bright elements, like links and buttons, to stand out more effectively, improving both aesthetics and usability.
+
+![](assets/screenshot-nginx-static.png)
+
+
+## Example 2 - NGINX server with local volume
+
+This example again displays a website that does not interact with the database. The different is that this website updates real time with the html code. 
+
+The screenshot shows that I changed the background color in the CSS file (although I am not sure purple is better than pink). I also added a line in the "Why Donate Blood" section that adds something about a free t-shirt (I have gotten multiple t-shirts by donating blood). The purple does make the text appear to be all white instead of the light pink it actually is. 
+
+![](assets/screenshot-nginix-volume.png)
+
+
+## Example 3 - APACHE and PHP with CMSC508 server
+
+This example shows shwow to use docker-compose with a remote connection. IT uses docker-compose.yml to create the image and connect to the local port. 
+
+The screenshot below shows that I updated the echo statements in the index.php file to included a second line after the "Tables in the database:" line. 
+
+![](assets/screenshot-apche-remote.png)
+
+## Example 4 - APACHE and PHP with local MYSQL database
+
+This example once again uses docker-compose, this time to locally host a php server and the local web page. Using the db folder, we can locally run the full database in the container. This allows us to also use php admin to manage the local database 
+
+This screenshot shows I once again edited an echo statement in the index.php file. This time the output says the files are not as cool. 
+
+![](assets/screenshot-apache-local.png)
+
+## Example 5 - PRODUCTION Example
+
+Similar to example 4, this example uses docker-compose to initalize the database and website. This time nginx is also used to load balance and reverse proxy. Loading all of these allows them all to communicate in the same container. 
+
+The screenshot included changes changes the text on the website past after the "Tables in the database:" line. 
+
+![](assets/screenshot-production.png)
+
+# Reflection
+
+I did not find much of the assignment particularly difficult. The only part I sightly struggled on was how to initially build the docker files. I did not know I neeed to give the command the folder to build it, I tried to hand it the name in the guide and it kept returning the same output even if I changed the code. 
+
+Once all of the software was donated, everything was easy to run and I had no issues changing anything about the html/php files. 
+
+My biggest takeaway is how simple it is to make a funcitonal website. The html code for the first example was incredibly short and created a cohesive home page for a website.
+
+Docker will be extremely helpful for our final project. The final website produced will be made with docker following example 5, the most complex example. This example ties all the different software programs we will use together into one container. 
+

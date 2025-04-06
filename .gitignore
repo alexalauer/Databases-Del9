@@ -1,0 +1,13 @@
+.quarto
+.env
+.history
+
+/.quarto/
+/_*.local
+/.venv/
+/.condaenv/
+*_cache/
+/env/
+/_site/
+/.venv/
+
